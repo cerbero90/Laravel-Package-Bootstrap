@@ -1,0 +1,22 @@
+language: php
+
+php:
+  - 5.4
+  - 5.5
+  - 5.6
+
+before_install:
+  - composer self-update
+  - composer create-project laravel/laravel
+  - cd ./laravel
+  - composer config repositories.foxted vcs https://github.com/foxted/Laravel-Package-Bootstrap
+  - composer require foxted/laravel-package-bootstrap dev-master
+  - composer update
+  - ls ./vendor/foxted
+  - touch ./app/database/testing.sqlite
+  - cp ./vendor/foxted/laravel-package-bootstrap/tests/config/database.php ./app/config/testing/
+  - cp ./vendor/foxted/laravel-package-bootstrap/tests/config/app.php ./app/config/testing/
+  - export APP_ENV="testing"
+  - cd ./vendor/foxted/laravel-package-bootstrap
+
+script: "phpunit"

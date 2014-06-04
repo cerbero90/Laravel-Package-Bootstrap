@@ -1,0 +1,25 @@
+{
+    "name": "foxted/laravel-package-bootstrap",
+    "description": "Laravel Package Bootstrap to kickstart package development",
+    "keywords": ["laravel", "package", "development", "bootstrap"],
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Valentin Prugnaud",
+            "email": "valentin@whatdafox.com"
+        }
+    ],
+    "require": {
+        "php": ">=5.4.0",
+        "laravel/framework": "4.2.*"
+    },
+    "autoload": {
+        "classmap": [
+            "src/migrations"
+        ],
+        "psr-4": {
+            "Foxted\\Package\\": "src/Foxted"
+        }
+    },
+    "minimum-stability": "stable"
+}
